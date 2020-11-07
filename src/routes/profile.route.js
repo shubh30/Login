@@ -8,7 +8,7 @@ const ProfileRoute = [
   {
     path: profile,
     exact: true,
-    isProtected: false,
+    isProtected: true,
     component: Profile,
   },
 ];

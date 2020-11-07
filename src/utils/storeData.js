@@ -12,10 +12,18 @@ export const setToken = (token) => (dispatch) => {
   });
 };
 
+export const setUserId = (data) => (dispatch) => {
+  localStorage.setItem("user_id", data);
+  let payload = { user_id: data };
+
+  dispatch({
+    type: SET_USER,
+    payload,
+  });
+};
+
 export const setUserData = (data) => (dispatch) => {
-  let { id, ...rest } = data;
-  localStorage.setItem("user_id", id);
-  localStorage.setItem("user", JSON.stringify(rest));
+  localStorage.setItem("user", JSON.stringify(data));
   let payload = {
     ...data,
   };

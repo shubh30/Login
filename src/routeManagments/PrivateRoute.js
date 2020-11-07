@@ -1,9 +1,11 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 
-// checking for token
-const isAuth = () =>
-  !!localStorage.getItem("token") && !!localStorage.getItem("user_id");
+// utility
+import { getToken, getUserId } from "../utils/retriveData";
+
+// checking for token & user id
+const isAuth = () => !!getToken() && !!getUserId();
 
 const PrivateRoute = (props) => {
   return isAuth() ? <Route {...props} /> : <Redirect to={"/"} />;
